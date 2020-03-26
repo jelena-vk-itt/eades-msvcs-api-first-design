@@ -9,7 +9,7 @@ import (
 	"html/template"
 )
 func GetAllNews(w http.ResponseWriter, r *http.Request) {
-	urls := [2]string{"http://nftch:8081", "http://wftch:8082" }
+	urls := [2]string{"http://nftch:8888", "http://wftch:8888" }
 	
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 
