@@ -65,6 +65,6 @@ func GetAllNews(w http.ResponseWriter, r *http.Request) {
 		t, _ := template.ParseFiles(templateName)
 		t.Execute(w, inserts)
 	} else {
-		fmt.Fprintln(w, "fesg[ERROR]: Invalid style parameter.<br>")
+		fmt.Fprintln(w, "allthenews[ERROR]: Invalid style parameter.<br>")
 	}
 }
