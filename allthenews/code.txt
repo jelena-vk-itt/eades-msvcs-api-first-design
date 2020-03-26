@@ -12,6 +12,7 @@ func GetAllNews(w http.ResponseWriter, r *http.Request) {
 	
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 
+	// PROCESSING STAGE 1
 	// Get information from news and weather services
 	infoTypes := [2]string{ "news", "weather"}
 	var fetchedStrings [2]string = [2]string{"", ""}
@@ -42,6 +43,7 @@ func GetAllNews(w http.ResponseWriter, r *http.Request) {
 		fetchedStrings[1],
 	}
 
+	// PROCESSING STAGE 2
 	// Read the query parameter "style" and check it against the different allowed values, assigning
 	// the appropriate template name to variable templateName.	
 	var templateName = ""
@@ -54,6 +56,7 @@ func GetAllNews(w http.ResponseWriter, r *http.Request) {
 		templateName = "bandw.html"
 	}
 
+	// PROCESSING STAGE 3
 	// We are using the template handling library html/template to insert the information fetches from the other
 	// services into the page with the requested style (via parameter 'style').
 	if (templateName != "") {
