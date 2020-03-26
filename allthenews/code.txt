@@ -20,19 +20,19 @@ func GetAllNews(w http.ResponseWriter, r *http.Request) {
 	for i := 0; i < 2; i++ {
 		resp, err := http.Get(urls[i])
 		if (err != nil) {
-			fmt.Fprintln("allthenews[ERROR]: Couldn't get " + infoTypes[i] + " from site. " + err.Error())
+			fmt.Fprintln("allthenews[ERROR]: Couldn't get " + infoTypes[i] + " from site. " + err.Error() + "<br/>")
 			log.Printf("allthenews[ERROR]: Couldn't get " + infoTypes[i] + " from site. " + err.Error())
 		} else {
 			if resp.StatusCode == http.StatusOK {
 				bodyBytes, err2 := ioutil.ReadAll(resp.Body)
 				if (err2 != nil) {
-					fmt.Fprintln("allthenews[ERROR]: Couldn't get " + infoTypes[i] + " from response." + 					err2.Error())
+					fmt.Fprintln("allthenews[ERROR]: Couldn't get " + infoTypes[i] + " from response." + 					err2.Error() + "<br/>")
 					log.Printf("allthenews[ERROR]: Couldn't get " + infoTypes[i] + " from response." + 					err2.Error())
 				} else {
 					fetchedStrings[i] = string(bodyBytes)
 				}
 			} else {
-				fmt.Fprintln("allthenews[ERROR]: HTTP returned status " + string(resp.StatusCode))
+				fmt.Fprintln("allthenews[ERROR]: HTTP returned status " + string(resp.StatusCode) + "<br/>")
 				log.Printf("allthenews[ERROR]: HTTP returned status " + string(resp.StatusCode))
 			}
 		}
@@ -70,6 +70,6 @@ func GetAllNews(w http.ResponseWriter, r *http.Request) {
 		t.Execute(w, inserts)
 	} else {
 		fmt.Fprintln(w, "allthenews[ERROR]: Invalid style parameter.<br>")
-		log.Printf(w, "allthenews[ERROR]: Invalid style parameter.<br>")
+		log.Printf(w, "allthenews[ERROR]: Invalid style parameter.")
 	}
 }
