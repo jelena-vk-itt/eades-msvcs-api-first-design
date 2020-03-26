@@ -1,3 +1,6 @@
+/* custom file for eades microservices api first lab */
+package swagger
+
 import (
 	"log"
 	"net/http"
