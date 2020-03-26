@@ -42,6 +42,6 @@ func GetAllNews(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Now put together an HTML page including all that
-	t, _ := template.ParseFiles("page.html")
+	t, _ := template.ParseFiles("plain.html")
 	t.Execute(w, inserts)
 }
