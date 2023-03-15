@@ -13,6 +13,8 @@ func GetAllNews(w http.ResponseWriter, r *http.Request) {
 	
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 
+	http.DefaultClient.Timeout = time.Second
+
 	// PROCESSING STAGE 1
 	// Get information from news and weather services
 	infoTypes := [2]string{ "news", "weather"}
